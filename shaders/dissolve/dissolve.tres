@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://t8mexfxpmofo"]
+
+[ext_resource type="Shader" uid="uid://kgn0u3s4e4u3" path="res://shaders/dissolve/dissolve.gdshader" id="1_qjexn"]
+[ext_resource type="Texture2D" uid="uid://u6decb4372x" path="res://shaders/dissolve/T_Perlin_Mask.PNG" id="2_ww452"]
+
+[resource]
+shader = ExtResource("1_qjexn")
+shader_parameter/ColorParameter = Color(0.79078, 0.88911, 0.998456, 1)
+shader_parameter/FloatParameter5 = 0.005
+shader_parameter/FloatParameter2 = 25.0
+shader_parameter/PerlinNoise = ExtResource("2_ww452")
+shader_parameter/FloatParameter = 15.0

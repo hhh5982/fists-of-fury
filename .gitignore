@@ -1,0 +1,29 @@
+# 原有 Godot 4+ 核心规则（保留）
+.godot/
+/android/
+
+# 新增：Godot 4+ 缓存与临时文件（必加，避免冗余）
+*.import
+.import/
+*.godot#
+*.godot.backup
+*.godot~
+.godot/editor_state-*
+.godot/debugger/
+.godot/mono/  # 若使用 C# 开发需保留，GDScript 可保留（无影响）
+
+# 新增：多平台构建产物（覆盖 Windows/Mac/Linux/移动端）
+/export/
+/build/
+*.exe
+*.x86_64
+*.app
+*.apk
+*.aab
+*.pck
+*.obb
+
+# 新增：系统冗余文件（跨平台兼容）
+.DS_Store  # Mac
+Thumbs.db  # Windows
+*.log      # 日志文件
