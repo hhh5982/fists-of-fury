@@ -12,8 +12,10 @@ var has_used_jumpkick := false
 
 func _ready() -> void:
 	super._ready()  # 调用父类Character的_ready初始化
+	anim_attacks = ["punch", "punch_alt", "kick", "roundkick"]
 	has_used_jumpkick = false
 
+	
 func _process(delta: float) -> void:
 	super._process(delta)  # 继承父类的_process逻辑（移动、动画等）
 	update_attack_cooldown(delta)  # 更新攻击冷却
