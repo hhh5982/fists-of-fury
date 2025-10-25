@@ -12,10 +12,8 @@ var has_used_jumpkick := false
 
 func _ready() -> void:
 	super._ready()  # 调用父类Character的_ready初始化
-	anim_attacks = ["punch", "punch_alt", "kick", "roundkick"]
 	has_used_jumpkick = false
 
-	
 func _process(delta: float) -> void:
 	super._process(delta)  # 继承父类的_process逻辑（移动、动画等）
 	update_attack_cooldown(delta)  # 更新攻击冷却
@@ -47,18 +45,16 @@ func handle_attack_hold_fire() -> void:
 		and can_attack() 
 		and attack_cooldown <= 0 
 		and state != State.JUMPKICK):
-		if has_knife:
-			state = State.THROW
-		else :
-			state = State.ATTACK
-			# 连击逻辑（保留你的原逻辑：命中则递增索引，未命中则重置）
-			if is_last_hit_successful:
-				attack_combo_index = (attack_combo_index + 1) % anim_attacks.size()
-				is_last_hit_successful = false  # 重置命中标记，等待下一次命中
-			else:
-				attack_combo_index = 0  # 未命中则从第一个攻击开始
-			
-			attack_cooldown = attack_fire_rate  # 重置冷却时间
+		
+		state = State.ATTACK
+		# 连击逻辑（保留你的原逻辑：命中则递增索引，未命中则重置）
+		if is_last_hit_successful:
+			attack_combo_index = (attack_combo_index + 1) % anim_attacks.size()
+			is_last_hit_successful = false  # 重置命中标记，等待下一次命中
+		else:
+			attack_combo_index = 0  # 未命中则从第一个攻击开始
+		
+		attack_cooldown = attack_fire_rate  # 重置冷却时间
 
 func set_heading() -> void:
 	# 保留你的原逻辑：基于移动方向更新朝向
